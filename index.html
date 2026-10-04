@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Payment Gateway</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- ================= SCREEN 1 : NAME ================= -->
+  <section class="screen active" id="screen-name">
+    <header class="hdr">
+      <div class="hdr-title">Enter Details</div>
+      <a class="help-link" href="https://t.me/AARAVX11" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/?size=100&id=59851&format=png&color=FFFFFF" alt="Help">
+        <span>Help</span>
+      </a>
+    </header>
+
+    <div class="body">
+      <div class="page-head">
+        <h2>What's your name?</h2>
+        <p>This name will appear on your payment receipt and UPI app.</p>
+      </div>
+
+      <div class="field">
+        <label for="nameInput">Full Name</label>
+        <div class="input-box">
+          <svg class="ic" width="19" height="19" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <input id="nameInput" type="text" placeholder="e.g. Rahul Sharma"
+                 autocomplete="name" spellcheck="false">
+        </div>
+        <p class="err" id="nameErr">Please enter your name</p>
+      </div>
+    </div>
+
+    <footer class="sticky-foot">
+      <button class="btn-primary" id="btnNext">Next</button>
+      <div class="powered-by">
+        <small>Payments Powered By</small>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" alt="Razorpay">
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= SCREEN 2 : EMAIL ================= -->
+  <section class="screen" id="screen-email">
+    <header class="hdr">
+      <button class="back-btn" data-back="name" aria-label="Back">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="hdr-title">Email Address</div>
+      <a class="help-link" href="https://t.me/AARAVX11" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/?size=100&id=59851&format=png&color=FFFFFF" alt="Help">
+        <span>Help</span>
+      </a>
+    </header>
+
+    <div class="body">
+      <div class="page-head">
+        <h2>Where should we send the receipt?</h2>
+        <p>Your payment confirmation and invoice will be sent to this email.</p>
+      </div>
+
+      <div class="field">
+        <label for="emailInput">Email Address</label>
+        <div class="input-box">
+          <svg class="ic" width="19" height="19" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="3"/>
+            <path d="m3 7 8.2 5.5a1.5 1.5 0 0 0 1.6 0L21 7"/>
+          </svg>
+          <input id="emailInput" type="email" placeholder="you@example.com"
+                 autocomplete="email" spellcheck="false">
+        </div>
+        <p class="err" id="emailErr">Please enter a valid email address</p>
+      </div>
+    </div>
+
+    <footer class="sticky-foot">
+      <button class="btn-primary" id="btnContinue">Continue</button>
+      <div class="powered-by">
+        <small>Payments Powered By</small>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" alt="Razorpay">
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= SCREEN 3 : PAYMENT ================= -->
+  <section class="screen" id="screen-payment">
+    <header class="hdr">
+      <button class="back-btn" data-back="email" aria-label="Back">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="hdr-user">
+        <span class="uname" id="hdrName">User</span>
+        <span class="tick-circle">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff"
+               stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </span>
+      </div>
+
+      <a class="help-link" href="https://t.me/AARAVX11" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/?size=100&id=59851&format=png&color=FFFFFF" alt="Help">
+        <span>Help</span>
+      </a>
+    </header>
+
+    <div class="body pay-body">
+
+      <!-- ACCORDION 1 : UPI APPS (OPEN BY DEFAULT) -->
+      <div class="acc open" id="accUpi">
+        <button class="acc-head" type="button">
+          <span class="acc-ic">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="2"/>
+              <rect x="14" y="3" width="7" height="7" rx="2"/>
+              <rect x="3" y="14" width="7" height="7" rx="2"/>
+              <path d="M14 17.5h7M17.5 14v7"/>
+            </svg>
+          </span>
+          <span class="acc-title">Continue in UPI apps</span>
+          <span class="chev">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="acc-body">
+          <div class="inner">
+            <div class="upi-list">
+
+              <!-- PhonePe -->
+              <div class="upi-item" data-app="phonepe">
+                <span class="logo">
+                  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/phonepe-icon.png" alt="PhonePe">
+                </span>
+                <span class="nm">PhonePe</span>
+                <span class="go">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </span>
+              </div>
+
+              <!-- Google Pay -->
+              <div class="upi-item" data-app="gpay">
+                <span class="logo">
+                  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-pay-icon.png" alt="Google Pay">
+                </span>
+                <span class="nm">Google Pay</span>
+                <span class="go">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </span>
+              </div>
+
+              <!-- Paytm -->
+              <div class="upi-item" data-app="paytm">
+                <span class="logo">
+                  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/paytm-icon.png" alt="Paytm">
+                </span>
+                <span class="nm">Paytm</span>
+                <span class="go">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </span>
+              </div>
+
+              <!-- Other Apps (UPI) -->
+              <div class="upi-item" data-app="bhim">
+                <span class="logo">
+                  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/upi-payment-icon.png" alt="Other UPI Apps">
+                </span>
+                <span class="nm">Other Apps</span>
+                <span class="go">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="divider">or</div>
+
+      <!-- ACCORDION 2 : QR (CLOSED BY DEFAULT) -->
+      <div class="acc" id="accQr">
+        <button class="acc-head" type="button">
+          <span class="acc-ic">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <path d="M14 14h3v3h-3zM19 19h2v2h-2zM19 14h2M14 21h2"/>
+            </svg>
+          </span>
+          <span class="acc-title">Show Payment QR</span>
+          <span class="chev">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="acc-body">
+          <div class="inner">
+            <div class="qr-box">
+
+              <div class="qr-loading" id="qrLoading" style="display:none">
+                <div class="spinner"></div>
+                <p>Generating secure QR…</p>
+              </div>
+
+              <div class="qr-content" id="qrContent">
+                <div class="qr-frame" id="qrFrame"></div>
+                <p class="qr-scan">Scan with any UPI app</p>
+                <p class="qr-sub">Automatic Payment Verification</p>
+                <div class="qr-timer">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <polyline points="12 7 12 12 15.5 14"/>
+                  </svg>
+                  QR expires in <b id="qrTimer">05:00</b>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="sticky-foot">
+
+      <!-- ===== COUPON DROPDOWN ===== -->
+      <div class="coupon" id="couponBox">
+        <button class="coupon-head" type="button" id="couponHead">
+          <span class="coupon-ic">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+              <circle cx="7" cy="7" r="1.4"/>
+            </svg>
+          </span>
+          <span class="coupon-lbl">Have a coupon code?</span>
+          <span class="chev">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="coupon-body">
+          <div class="inner">
+            <div class="coupon-row">
+              <input id="couponInput" type="text" maxlength="5" placeholder="Enter coupon code"
+                     autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
+              <button type="button" id="couponBtn">Claim</button>
+            </div>
+            <p class="coupon-msg" id="couponMsg"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pay-foot">
+        <div class="amt">
+          <small>Total Amount</small>
+          <b id="amtDisplay">₹199</b>
+          <span class="strike" id="amtStrike" style="display:none">₹199</span>
+        </div>
+        <button class="btn-primary" id="btnPay">Continue</button>
+      </div>
+
+      <div class="powered-by">
+        <small>Payments Powered By</small>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" alt="Razorpay">
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= GATEWAY LOADER ================= -->
+  <div class="loader" id="loader">
+    <div class="pg-anim">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <img class="pg-core" src="https://cdn.brandfetch.io/idHc4m3b7C/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Razorpay">
+    </div>
+    <h3>Connecting to Payment Gateway</h3>
+    <p>Please wait, do not press back…</p>
+    <div class="pg-bar"><span></span></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
